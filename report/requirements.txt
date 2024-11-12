@@ -1,0 +1,4 @@
+redshift_connector
+python-dotenv
+jinja2
+pytest

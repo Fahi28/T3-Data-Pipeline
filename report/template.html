@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Transaction Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 80%; /* Adjust table width as needed */
+            max-width: 800px;
+            margin: 0 auto 20px auto; /* Center the table */
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .total {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Daily Transaction Report</h1>
+
+    <h2 style="text-align: center;">Total Transaction Revenue Per Truck</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Truck Name</th>
+                <th>Total Revenue</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for truck in data.total_transaction_value_per_truck %}
+                <tr>
+                    <td>{{ truck.truck_name }}</td>
+                    <td>£{{ truck.total_value }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p class="total">Total Transaction Revenue: £{{ data.total_transaction_value }}</p>
+
+    <h2 style="text-align: center;">Number of Transactions Per Truck</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Truck Name</th>
+                <th>Transactions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for truck in data.number_of_transactions_per_truck %}
+                <tr>
+                    <td>{{ truck.truck_name }}</td>
+                    <td>{{ truck.transactions }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p class="total">Number of Transactions: {{ data.number_of_transactions }}</p>
+
+    <h2 style="text-align: center;">Average Revenue Per Truck</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Truck Name</th>
+                <th>Average Revenue</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for truck in data.average_revenue_per_truck %}
+                <tr>
+                    <td>{{ truck.truck_name }}</td>
+                    <td>£{{ truck.average_revenue }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p class="total">Total Average Revenue: £{{ data.total_average_revenue }}</p>
+</body>
+</html>
