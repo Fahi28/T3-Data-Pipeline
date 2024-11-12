@@ -1,0 +1,16 @@
+FROM python:latest
+
+COPY requirements.txt .
+
+RUN pip install -r requirements.txt
+
+COPY global_variables.py .
+COPY extract.py .
+COPY transform.py .
+COPY load.py .
+COPY pipeline.py .
+
+RUN chmod +x pipeline.py  
+
+CMD ["bash", "-c", "python3 pipeline.py"]
+
