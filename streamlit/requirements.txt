@@ -1,0 +1,9 @@
+boto3
+openpyxl
+pandas
+redshift_connector
+python-dotenv
+altair==4.2.0
+pyarrow
+fastparquet
+streamlit
